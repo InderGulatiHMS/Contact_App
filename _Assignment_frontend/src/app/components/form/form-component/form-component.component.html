@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-sm-12">
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <div class="row mt-3">
+                        <div class="col-sm-12  mt-3">
+                            <div class="row" >
+                                <div class="col-sm-12 d-flex justify-content-end " >
+                                    <h1 class="border-bottom info">Contact Us</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow p-2">
+                        <form [formGroup]="FormData">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="firstName">firstName:</label>
+                                        <input placeholder="fullname" class="mt-2  w-100" id="firstName" type="text"
+                                            formControlName="firstName" name="firstName">
+                                        <span class="text-danger"
+                                            *ngIf="!FormData.get('firstName').valid && FormData.get('firstName').dirty">
+                                            This field is required.</span>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="lname">lastName:</label>
+                                        <input placeholder="lastName" class="mt-2 w-100" id="lastName" type="text" name="lastName"
+                                            formControlName="lastName">
+                                        <span class="text-danger"
+                                            *ngIf="!FormData.get('lastName').valid && FormData.get('lastName').dirty">This field is required.</span>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="Age">email:</label>
+                                        <input placeholder="email" class=" w-100 mt-2" id="email" type="text" name="email"
+                                            formControlName="email">
+                                        <span class="text-danger"
+                                            *ngIf="!FormData.get('email').valid && FormData.get('email').dirty">This field is required.</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <button *ngIf="isSubmit" class="btn btn-primary mt-2 mb-2 me-2"
+                                            (click)="submitData()">submit</button>
+                                        <button *ngIf="isUpdate" class="btn btn-info mt-2 mb-2"
+                                            (click)="updateData()">update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-4">
+        <app-alert *ngIf="alert" [class]="class" [alertMessage]="alertMessage"> </app-alert>
+    </div>
